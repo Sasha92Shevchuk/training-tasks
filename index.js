@@ -36,11 +36,38 @@
 
 // moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]); // returns[false,1,1,2,1,3,"a",0,0]
 
-function reverseWords(str) {
-  return str
-    .split(" ")
-    .map((item) => item.split("").reverse().join(""))
-    .join(" ");
-}
-const testString = "This is an example!";
-console.log(reverseWords(testString));
+// function reverseWords(str) {
+//   return str
+//     .split(" ")
+//     .map((item) => item.split("").reverse().join(""))
+//     .join(" ");
+// }
+// const testString = "This is an example!";
+// console.log(reverseWords(testString));
+
+// function smash(words) {
+//    return words.join(" ");
+//
+// }
+// const arr = ["hello", "world", "this", "is", "great"];
+// console.log(smash(arr));
+
+// function makeNegative(num) {
+//   return num < 0 ? num : num - num * 2;
+// }
+// console.log(makeNegative(1));
+// console.log(makeNegative(-5));
+// console.log(makeNegative(0));
+// console.log(makeNegative(0.12));
+
+// function noSpace(x) {
+//   return x.split(" ").join("");
+
+//   //=====
+//   // return x.replace(/\s/gi, "");
+// }
+
+// const str = "8 j 8   mBliB8g  imjB8B8  jl  B";
+// console.log(noSpace(str));
+
+console.log(Math.floor(1 + 1 / 4 + 1 / 7 + 1 / 10 + 1 / 13));
