@@ -57,29 +57,77 @@
 // const str = "8 j 8   mBliB8g  imjB8B8  jl  B";
 // console.log(noSpace(str));
 
-function XO(str) {
-  const arr = str.toLowerCase().split("");
-  let countX = [];
-  let countO = [];
-  for (let i = 0; i < arr.length; i++) {
-    const element = arr[i];
-    if (element === "x") {
-      countX.push(element);
-    } else if (element === "o") {
-      countO.push(element);
-    }
-  }
+// function XO(str) {
+//   const arr = str.toLowerCase().split("");
+//   let countX = [];
+//   let countO = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     const element = arr[i];
+//     if (element === "x") {
+//       countX.push(element);
+//     } else if (element === "o") {
+//       countO.push(element);
+//     }
+//   }
 
-  return countX.length === countO.length ? true : false;
+//   return countX.length === countO.length ? true : false;
+// }
+
+// const str1 = "ooxx";
+// const str2 = "xooxx";
+// const str3 = "ooxXm";
+// const str4 = "zpzpzpp";
+// const str5 = "zzoo";
+// console.log(XO(str1));
+// console.log(XO(str2));
+// console.log(XO(str3));
+// console.log(XO(str4));
+// console.log(XO(str5));
+
+// function getMiddle(s) {
+//   let res;
+//   const str = s.length % 2 === 0;
+//   const midIndex = Number((s.length / 2 - 1).toFixed());
+//   if (midIndex === -1) {
+//     return s;
+//   } else if (str) {
+//     res = s[midIndex] + s[midIndex + 1];
+//   } else {
+//     res = s[midIndex];
+//   }
+//   return res;
+// }
+
+// const str1 = "test";
+// const str2 = "testing";
+// const str3 = "middle";
+// const str4 = "A";
+// console.log(getMiddle(str1));
+// console.log(getMiddle(str2));
+// console.log(getMiddle(str3));
+// console.log(getMiddle(str4));
+
+// function transform(input) {
+//   const res = input.split("").map((item) => {
+//     if (item === item.toUpperCase() && item !== item.toLowerCase()) {
+//       return item + "+";
+//     }
+//     return item;
+//   });
+//   return res.join("");
+// }
+
+// const str = "DunYweMY48";
+// console.log(transform(str));
+
+function decompose(number) {
+  const digits = number.toString().split("");
+  const formattedDigits = digits.map((digit, index) => {
+    const zeros = "0".repeat(digits.length - index - 1);
+    return digit + zeros;
+  });
+  return formattedDigits.join(" + ");
 }
 
-const str1 = "ooxx";
-const str2 = "xooxx";
-const str3 = "ooxXm";
-const str4 = "zpzpzpp";
-const str5 = "zzoo";
-console.log(XO(str1));
-console.log(XO(str2));
-console.log(XO(str3));
-console.log(XO(str4));
-console.log(XO(str5));
+const num = 5681;
+console.log(decompose(num));
