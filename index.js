@@ -120,14 +120,30 @@
 // const str = "DunYweMY48";
 // console.log(transform(str));
 
-function decompose(number) {
-  const digits = number.toString().split("");
-  const formattedDigits = digits.map((digit, index) => {
-    const zeros = "0".repeat(digits.length - index - 1);
-    return digit + zeros;
-  });
-  return formattedDigits.join(" + ");
+// function decompose(number) {
+//   const digits = number.toString().split("");
+//   const formattedDigits = digits.map((digit, index) => {
+//     const zeros = "0".repeat(digits.length - index - 1);
+//     return digit + zeros;
+//   });
+//   return formattedDigits.join(" + ");
+// }
+
+// const num = 5681;
+// console.log(decompose(num));
+
+function solution(str, ending) {
+  return str.endsWith(ending);
+  // const endingArrLength = ending.split("").length;
+  // if (endingArrLength === 0) {
+  //   return true;
+  // }
+
+  // const newArr = str.split("").slice(-endingArrLength).join("");
+
+  // return newArr === ending ? true : false;
 }
 
-const num = 5681;
-console.log(decompose(num));
+console.log(solution("aaabc", "bc"));
+console.log(solution("abc", "d"));
+console.log(solution("abc", ""));
