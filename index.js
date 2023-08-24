@@ -132,18 +132,51 @@
 // const num = 5681;
 // console.log(decompose(num));
 
-function solution(str, ending) {
-  return str.endsWith(ending);
-  // const endingArrLength = ending.split("").length;
-  // if (endingArrLength === 0) {
-  //   return true;
-  // }
+// function solution(str, ending) {
+//   return str.endsWith(ending);
+//   // const endingArrLength = ending.split("").length;
+//   // if (endingArrLength === 0) {
+//   //   return true;
+//   // }
 
-  // const newArr = str.split("").slice(-endingArrLength).join("");
+//   // const newArr = str.split("").slice(-endingArrLength).join("");
 
-  // return newArr === ending ? true : false;
+//   // return newArr === ending ? true : false;
+// }
+
+// console.log(solution("aaabc", "bc"));
+// console.log(solution("abc", "d"));
+// console.log(solution("abc", ""));
+
+// function sumStrings(a, b) {
+//   return (BigInt(a) + BigInt(b)).toString();
+// }
+
+// console.log(sumStrings("1", "2")); //=>3
+// console.log(
+//   sumStrings("712569312664357328695151392", "8100824045303269669937")
+// ); //=>7.125774134884027e+26
+
+function isMerge(s, part1, part2) {
+  if (s === "") {
+    return part1 === "" && part2 === "";
+  }
+
+  if (part1[0] === s[0] && isMerge(s.slice(1), part1.slice(1), part2)) {
+    return true;
+  }
+
+  if (part2[0] === s[0] && isMerge(s.slice(1), part1, part2.slice(1))) {
+    return true;
+  }
+
+  return false;
 }
 
-console.log(solution("aaabc", "bc"));
-console.log(solution("abc", "d"));
-console.log(solution("abc", ""));
+const s = "codewars";
+const part1 = "cdwl";
+const part2 = "oears";
+// const s = "xcyc";
+// const part1 = "xc";
+// const part2 = "yc";
+console.log(isMerge(s, part1, part2));
