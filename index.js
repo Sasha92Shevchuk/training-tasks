@@ -157,26 +157,52 @@
 //   sumStrings("712569312664357328695151392", "8100824045303269669937")
 // ); //=>7.125774134884027e+26
 
-function isMerge(s, part1, part2) {
-  if (s === "") {
-    return part1 === "" && part2 === "";
-  }
+// function isMerge(s, part1, part2) {
+//   if (s === "") {
+//     return part1 === "" && part2 === "";
+//   }
 
-  if (part1[0] === s[0] && isMerge(s.slice(1), part1.slice(1), part2)) {
-    return true;
-  }
+//   if (part1[0] === s[0] && isMerge(s.slice(1), part1.slice(1), part2)) {
+//     return true;
+//   }
 
-  if (part2[0] === s[0] && isMerge(s.slice(1), part1, part2.slice(1))) {
-    return true;
-  }
+//   if (part2[0] === s[0] && isMerge(s.slice(1), part1, part2.slice(1))) {
+//     return true;
+//   }
 
-  return false;
+//   return false;
+// }
+
+// const s = "codewars";
+// const part1 = "cdwl";
+// const part2 = "oears";
+// // const s = "xcyc";
+// // const part1 = "xc";
+// // const part2 = "yc";
+// console.log(isMerge(s, part1, part2));
+
+function persistence(num) {
+  let count = 0;
+  return helper(num, count);
 }
 
-const s = "codewars";
-const part1 = "cdwl";
-const part2 = "oears";
-// const s = "xcyc";
-// const part1 = "xc";
-// const part2 = "yc";
-console.log(isMerge(s, part1, part2));
+function helper(num, count) {
+  if (num < 10) {
+    return count;
+  }
+  count++;
+
+  let arr = Array.from(num.toString(), Number);
+
+  const sum = arr.reduce((acc, item) => acc * item);
+
+  if (sum.toString().length === 1) {
+    return count;
+  }
+  return helper(sum, count);
+}
+
+// console.log(persistence(39));
+// console.log(persistence(999));
+// console.log(persistence(4));
+console.log(persistence(25));
