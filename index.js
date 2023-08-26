@@ -181,28 +181,38 @@
 // // const part2 = "yc";
 // console.log(isMerge(s, part1, part2));
 
-function persistence(num) {
-  let count = 0;
-  return helper(num, count);
+// function persistence(num) {
+//   let count = 0;
+//   return helper(num, count);
+// }
+
+// function helper(num, count) {
+//   if (num < 10) {
+//     return count;
+//   }
+//   count++;
+
+//   let arr = Array.from(num.toString(), Number);
+
+//   const sum = arr.reduce((acc, item) => acc * item);
+
+//   if (sum.toString().length === 1) {
+//     return count;
+//   }
+//   return helper(sum, count);
+// }
+
+// // console.log(persistence(39));
+// // console.log(persistence(999));
+// // console.log(persistence(4));
+// console.log(persistence(25));
+
+function isIsogram(str) {
+  const myset = new Set(str.toLowerCase().split(""));
+  return [...myset].length === str.toLowerCase().split("").length;
 }
 
-function helper(num, count) {
-  if (num < 10) {
-    return count;
-  }
-  count++;
-
-  let arr = Array.from(num.toString(), Number);
-
-  const sum = arr.reduce((acc, item) => acc * item);
-
-  if (sum.toString().length === 1) {
-    return count;
-  }
-  return helper(sum, count);
-}
-
-// console.log(persistence(39));
-// console.log(persistence(999));
-// console.log(persistence(4));
-console.log(persistence(25));
+console.log(isIsogram("Dermatoglyphics"));
+console.log(isIsogram("isogram"));
+console.log(isIsogram("aba"));
+console.log(isIsogram("moOse"));
