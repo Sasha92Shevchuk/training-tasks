@@ -207,12 +207,28 @@
 // // console.log(persistence(4));
 // console.log(persistence(25));
 
-function isIsogram(str) {
-  const myset = new Set(str.toLowerCase().split(""));
-  return [...myset].length === str.toLowerCase().split("").length;
-}
+// function isIsogram(str) {
+//   const myset = new Set(str.toLowerCase().split(""));
+//   return [...myset].length === str.toLowerCase().split("").length;
+// }
 
-console.log(isIsogram("Dermatoglyphics"));
-console.log(isIsogram("isogram"));
-console.log(isIsogram("aba"));
-console.log(isIsogram("moOse"));
+// console.log(isIsogram("Dermatoglyphics"));
+// console.log(isIsogram("isogram"));
+// console.log(isIsogram("aba"));
+// console.log(isIsogram("moOse"));
+
+function findEvenIndex(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    const leftSum = arr.slice(0, i).reduce((acc, val) => acc + val, 0);
+    const rightSum = arr.slice(i + 1).reduce((acc, val) => acc + val, 0);
+
+    if (leftSum === rightSum) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+console.log(findEvenIndex([1, 100, 50, -51, 1, 1]));
+console.log(findEvenIndex([20, 10, 30, 10, 10, 15, 35]));
