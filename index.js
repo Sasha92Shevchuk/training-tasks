@@ -217,18 +217,39 @@
 // console.log(isIsogram("aba"));
 // console.log(isIsogram("moOse"));
 
-function findEvenIndex(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    const leftSum = arr.slice(0, i).reduce((acc, val) => acc + val, 0);
-    const rightSum = arr.slice(i + 1).reduce((acc, val) => acc + val, 0);
+// function findEvenIndex(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     const leftSum = arr.slice(0, i).reduce((acc, val) => acc + val, 0);
+//     const rightSum = arr.slice(i + 1).reduce((acc, val) => acc + val, 0);
 
-    if (leftSum === rightSum) {
-      return i;
+//     if (leftSum === rightSum) {
+//       return i;
+//     }
+//   }
+
+//   return -1;
+// }
+// console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+// console.log(findEvenIndex([1, 100, 50, -51, 1, 1]));
+// console.log(findEvenIndex([20, 10, 30, 10, 10, 15, 35]));
+
+function duplicateCount(text) {
+  const arrFromText = text.toLowerCase().split("");
+
+  const uniqueChars = [...new Set(arrFromText)];
+  let countDuplicate = 0;
+
+  uniqueChars.forEach((char) => {
+    const charCount = arrFromText.filter((item) => item === char).length;
+    if (charCount > 1) {
+      countDuplicate++;
     }
-  }
+  });
 
-  return -1;
+  return countDuplicate;
 }
-console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
-console.log(findEvenIndex([1, 100, 50, -51, 1, 1]));
-console.log(findEvenIndex([20, 10, 30, 10, 10, 15, 35]));
+
+// console.log(duplicateCount("abcde"));
+console.log(duplicateCount("aabbcde"));
+// console.log(duplicateCount("aabBcde"));
+// console.log(duplicateCount("indivisibility"));
