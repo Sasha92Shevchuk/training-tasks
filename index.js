@@ -233,23 +233,65 @@
 // console.log(findEvenIndex([1, 100, 50, -51, 1, 1]));
 // console.log(findEvenIndex([20, 10, 30, 10, 10, 15, 35]));
 
-function duplicateCount(text) {
-  const arrFromText = text.toLowerCase().split("");
+// function duplicateCount(text) {
+//   const arrFromText = text.toLowerCase().split("");
 
-  const uniqueChars = [...new Set(arrFromText)];
-  let countDuplicate = 0;
+//   const uniqueChars = [...new Set(arrFromText)];
+//   let countDuplicate = 0;
 
-  uniqueChars.forEach((char) => {
-    const charCount = arrFromText.filter((item) => item === char).length;
-    if (charCount > 1) {
-      countDuplicate++;
-    }
-  });
+//   uniqueChars.forEach((char) => {
+//     const charCount = arrFromText.filter((item) => item === char).length;
+//     console.log("uniqueChars.forEach ~ charCount:", charCount);
+//     if (charCount > 1) {
+//       countDuplicate++;
+//     }
+//   });
 
-  return countDuplicate;
-}
+//   return countDuplicate;
+// }
 
 // console.log(duplicateCount("abcde"));
-console.log(duplicateCount("aabbcde"));
+//console.log(duplicateCount("aabbcde"));
 // console.log(duplicateCount("aabBcde"));
 // console.log(duplicateCount("indivisibility"));
+
+const uniqueInOrder = (iterable) => {
+  let arr;
+  if (typeof iterable === "string") {
+    arr = iterable.split("");
+  } else {
+    arr = iterable;
+  }
+
+  const newArr = [];
+  let current = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === arr[i - 1]) {
+      current += arr[i];
+    } else {
+      newArr.push(current);
+      current = arr[i];
+    }
+  }
+  newArr.push(current);
+
+  let uniqueArr;
+
+  const resArr = [];
+
+  newArr.forEach((item) => {
+    if (typeof item === "string") {
+      uniqueArr = [...new Set(item.split(""))];
+    } else {
+      uniqueArr = [...new Set(item.toFixed().split(""))];
+    }
+
+    return resArr.push(uniqueArr.join());
+  });
+  return resArr;
+};
+
+console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+console.log(uniqueInOrder("ABBCcAD"));
+console.log(uniqueInOrder([1, 2, 2, 3, 3]));
