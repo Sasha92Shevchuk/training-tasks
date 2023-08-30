@@ -255,43 +255,35 @@
 // console.log(duplicateCount("aabBcde"));
 // console.log(duplicateCount("indivisibility"));
 
-const uniqueInOrder = (iterable) => {
-  let arr;
-  if (typeof iterable === "string") {
-    arr = iterable.split("");
-  } else {
-    arr = iterable;
-  }
+// const uniqueInOrder = (iterable) => {
+//   const arr = typeof iterable === "string" ? iterable.split("") : iterable;
+//   const result = [];
 
-  const newArr = [];
-  let current = arr[0];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== arr[i + 1]) {
+//       result.push(arr[i]);
+//     }
+//   }
 
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] === arr[i - 1]) {
-      current += arr[i];
-    } else {
-      newArr.push(current);
-      current = arr[i];
-    }
-  }
-  newArr.push(current);
+//   return result;
+// };
 
-  let uniqueArr;
+// console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+// console.log(uniqueInOrder("ABBCcAD"));
+// console.log(uniqueInOrder([1, 2, 2, 3, 3]));
 
-  const resArr = [];
+function validatePIN(pin) {
+  //   pin.split("").forEach((element) => {
+  //     if (+element === NaN) {
+  //       return false;
+  //     }
+  //   });
+  //   console.log(!isNaN(pin));
+  return (pin.length === 4 || pin.length === 6) && !isNaN(pin) ? true : false;
+}
 
-  newArr.forEach((item) => {
-    if (typeof item === "string") {
-      uniqueArr = [...new Set(item.split(""))];
-    } else {
-      uniqueArr = [...new Set(item.toFixed().split(""))];
-    }
-
-    return resArr.push(uniqueArr.join());
-  });
-  return resArr;
-};
-
-console.log(uniqueInOrder("AAAABBBCCDAABBB"));
-console.log(uniqueInOrder("ABBCcAD"));
-console.log(uniqueInOrder([1, 2, 2, 3, 3]));
+// console.log(validatePIN("1234"));
+// console.log(validatePIN("12345"));
+console.log(validatePIN("a234"));
+console.log(validatePIN("-1234"));
+console.log(validatePIN("1.234"));
