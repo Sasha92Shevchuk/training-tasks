@@ -272,14 +272,22 @@
 // console.log(uniqueInOrder("ABBCcAD"));
 // console.log(uniqueInOrder([1, 2, 2, 3, 3]));
 
-function validatePIN(pin) {
-  const reg = /^(?:\d{4}|\d{6})$/;
+// function validatePIN(pin) {
+//   const reg = /^(?:\d{4}|\d{6})$/;
 
-  return reg.test(pin);
+//   return reg.test(pin);
+// }
+
+// console.log(validatePIN(".123"));
+// console.log(validatePIN("1234"));
+// console.log(validatePIN("a234"));
+// console.log(validatePIN("-1234"));
+// console.log(validatePIN("1.234"));
+
+function friend(friends) {
+  return friends.filter((item) => {
+    return item.length === 4;
+  });
 }
 
-console.log(validatePIN(".123"));
-console.log(validatePIN("1234"));
-console.log(validatePIN("a234"));
-console.log(validatePIN("-1234"));
-console.log(validatePIN("1.234"));
+console.log(friend(["Ryan", "Kieran", "Mark"])); //=>["Ryan", "Mark"]
