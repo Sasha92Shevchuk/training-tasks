@@ -273,17 +273,13 @@
 // console.log(uniqueInOrder([1, 2, 2, 3, 3]));
 
 function validatePIN(pin) {
-  //   pin.split("").forEach((element) => {
-  //     if (+element === NaN) {
-  //       return false;
-  //     }
-  //   });
-  //   console.log(!isNaN(pin));
-  return (pin.length === 4 || pin.length === 6) && !isNaN(pin) ? true : false;
+  const reg = /^(?:\d{4}|\d{6})$/;
+
+  return reg.test(pin);
 }
 
-// console.log(validatePIN("1234"));
-// console.log(validatePIN("12345"));
+console.log(validatePIN(".123"));
+console.log(validatePIN("1234"));
 console.log(validatePIN("a234"));
 console.log(validatePIN("-1234"));
 console.log(validatePIN("1.234"));
