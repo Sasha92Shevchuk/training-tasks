@@ -284,10 +284,24 @@
 // console.log(validatePIN("-1234"));
 // console.log(validatePIN("1.234"));
 
-function friend(friends) {
-  return friends.filter((item) => {
-    return item.length === 4;
-  });
+// function friend(friends) {
+//   return friends.filter((item) => {
+//     return item.length === 4;
+//   });
+// }
+
+// console.log(friend(["Ryan", "Kieran", "Mark"])); //=>["Ryan", "Mark"]
+
+function positiveSum(arr) {
+  //   if (arr.length === 0) {
+  //     return 0;
+  //   }
+  //     return arr.filter((item) => item > 0).reduce((acc, prev) => acc + prev, 0);
+  return arr.length !== 0
+    ? arr.filter((item) => item > 0).reduce((acc, prev) => acc + prev, 0)
+    : 0;
 }
 
-console.log(friend(["Ryan", "Kieran", "Mark"])); //=>["Ryan", "Mark"]
+console.log(positiveSum([-1, -4, -7, -12])); // =>1 + 7 + 12 = 20
+console.log(positiveSum([])); //  = 0
+console.log(positiveSum([4, 5, -8])); //  = 9
