@@ -306,15 +306,45 @@
 // console.log(positiveSum([])); //  = 0
 // console.log(positiveSum([4, 5, -8])); //  = 9
 
-function narcissistic(value) {
-  const arr = value.toString().split("");
+// function narcissistic(value) {
+//   const arr = value.toString().split("");
 
-  const res = arr
-    .map((item) => Number(item) ** arr.length)
-    .reduce((acc, prev) => acc + prev, 0);
+//   const res = arr
+//     .map((item) => Number(item) ** arr.length)
+//     .reduce((acc, prev) => acc + prev, 0);
 
-  //   return Number(arr.reduce((acc, prev) => acc + prev)) === res;
-  return value === res;
+//   //   return Number(arr.reduce((acc, prev) => acc + prev)) === res;
+//   return value === res;
+// }
+
+// console.log(narcissistic(153)); // 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+
+function findOutlier(integers) {
+  const arrOdd = [];
+  let even;
+  integers.forEach((element) => {
+    if (element % 2 === 0) {
+      arrOdd.push(element);
+    } else {
+      even = element;
+    }
+  });
+
+  return arrOdd.length === 1 ? Number(arrOdd) : even;
+
+  //   if (integers[0] % 2 === 0 && integers[1] % 2 === 0) {
+  //     console.log("масив парних чисел");
+  //     return integers.find((item) => item % 2 !== 0);
+  //   } else {
+  //     console.log(" масив не парних чисел");
+  //     return integers.find((item) => item % 2 === 0);
+  //   }
+  //   console.log(integers.find((item) => item % 2 !== 0)); // - знайти не парне число
+  //   console.log(integers.find((item) => item % 2 === 0)); // - знайти парне число
 }
 
-console.log(narcissistic(153)); // 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36])); //=> 11
+console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21])); //=> 160
+console.log(findOutlier([2, 6, 8, 10, 3])); //=> 3
+console.log(findOutlier([1, 1, 0, 1, 1])); //=> 0
+console.log(findOutlier([0, 1, 2])); //=> 1
