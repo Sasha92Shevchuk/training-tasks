@@ -343,32 +343,60 @@
 // console.log(findOutlier([1, 1, 0, 1, 1])); //=> 0
 // console.log(findOutlier([0, 1, 2])); //=> 1
 
-const tower = [];
-function towerBuilder(nFloors) {
-  if (nFloors === 0) {
-    return tower;
-  }
-  const lastString =
-    " ".repeat(tower.length) +
-    "*".repeat(nFloors + nFloors - 1 || 1) +
-    " ".repeat(tower.length);
-  tower.unshift(lastString);
+// const tower = [];
+// function towerBuilder(nFloors) {
+//   // if (nFloors === 0) {
+//   //   return tower;
+//   // }
+//   // const lastString =
+//   //   " ".repeat(tower.length) +
+//   //   "*".repeat(nFloors + nFloors - 1 || 1) +
+//   //   " ".repeat(tower.length);
+//   // tower.unshift(lastString);
 
-  towerBuilder(nFloors - 1);
-  return tower;
-  // good design
-  // const tower = [];
+//   // towerBuilder(nFloors - 1);
+//   // return tower;
+//   // good design
+//   const tower = [];
 
-  // for (let i = 0; i < nFloors; i++) {
-  //   const spaces = " ".repeat(nFloors - i - 1);
-  //   const stars = "*".repeat(i * 2 + 1);
-  //   const level = spaces + stars + spaces;
-  //   tower.push(level);
-  // }
+//   for (let i = 0; i < nFloors; i++) {
+//     const spaces = " ".repeat(nFloors - i - 1);
+//     const stars = "*".repeat(i * 2 + 1);
+//     const level = spaces + stars + spaces;
+//     tower.push(level);
+//   }
 
-  // return tower;
+//   return tower;
+// }
+
+// // console.log(towerBuilder(1)); //=>["*"]
+// // console.log(towerBuilder(2)); // =>  [" * ","***"]
+// console.log(towerBuilder(3)); // => ["  *  "," *** ","*****"]
+
+// function digitalRoot(n) {
+//   if (n < 10) {
+//     return n;
+//   }
+//   const numb = n
+//     .toString()
+//     .split("")
+//     .reduce((acc, num) => acc + Number(num), 0);
+//   return digitalRoot(numb);
+// }
+
+// console.log(digitalRoot(16)); // -->  1 + 6 = 7
+// console.log(digitalRoot(942)); // -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+// console.log(digitalRoot(132189)); // -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
+// console.log(digitalRoot(493193)); //  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+
+function descendingOrder(n) {
+  const strArr = n.toFixed().split("");
+  const arrNumb = strArr.map((item) => Number(item));
+  return Number(arrNumb.sort((a, b) => b - a).join(""));
 }
 
-// console.log(towerBuilder(1)); //=>["*"]
-// console.log(towerBuilder(2)); // =>  [" * ","***"]
-console.log(towerBuilder(6)); // => ["  *  "," *** ","*****"]
+console.log(descendingOrder(0)); // => 0
+console.log(descendingOrder(1)); // => 1
+console.log(descendingOrder(111)); // => 111
+console.log(descendingOrder(15)); // => 51
+console.log(descendingOrder(1021)); // => 2110
