@@ -319,32 +319,56 @@
 
 // console.log(narcissistic(153)); // 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
 
-function findOutlier(integers) {
-  const arrOdd = [];
-  let even;
-  integers.forEach((element) => {
-    if (element % 2 === 0) {
-      arrOdd.push(element);
-    } else {
-      even = element;
-    }
-  });
+// function findOutlier(integers) {
+//   const arrOdd = [];
+//   let even;
+//   integers.forEach((element) => {
+//     if (element % 2 === 0) {
+//       arrOdd.push(element);
+//     } else {
+//       even = element;
+//     }
+//   });
 
-  return arrOdd.length === 1 ? Number(arrOdd) : even;
+//   return arrOdd.length === 1 ? arrOdd[0] : even;
+//   //   const evens = integers.filter((num) => num % 2 === 0);
+//   //   const odds = integers.filter((num) => num % 2 !== 0);
 
-  //   if (integers[0] % 2 === 0 && integers[1] % 2 === 0) {
-  //     console.log("масив парних чисел");
-  //     return integers.find((item) => item % 2 !== 0);
-  //   } else {
-  //     console.log(" масив не парних чисел");
-  //     return integers.find((item) => item % 2 === 0);
-  //   }
-  //   console.log(integers.find((item) => item % 2 !== 0)); // - знайти не парне число
-  //   console.log(integers.find((item) => item % 2 === 0)); // - знайти парне число
+//   //   return evens.length === 1 ? evens[0] : odds[0];
+// }
+
+// console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36])); //=> 11
+// console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21])); //=> 160
+// console.log(findOutlier([2, 6, 8, 10, 3])); //=> 3
+// console.log(findOutlier([1, 1, 0, 1, 1])); //=> 0
+// console.log(findOutlier([0, 1, 2])); //=> 1
+
+const tower = [];
+function towerBuilder(nFloors) {
+  if (nFloors === 0) {
+    return tower;
+  }
+  const lastString =
+    " ".repeat(tower.length) +
+    "*".repeat(nFloors + nFloors - 1 || 1) +
+    " ".repeat(tower.length);
+  tower.unshift(lastString);
+
+  towerBuilder(nFloors - 1);
+  return tower;
+  // good design
+  // const tower = [];
+
+  // for (let i = 0; i < nFloors; i++) {
+  //   const spaces = " ".repeat(nFloors - i - 1);
+  //   const stars = "*".repeat(i * 2 + 1);
+  //   const level = spaces + stars + spaces;
+  //   tower.push(level);
+  // }
+
+  // return tower;
 }
 
-console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36])); //=> 11
-console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21])); //=> 160
-console.log(findOutlier([2, 6, 8, 10, 3])); //=> 3
-console.log(findOutlier([1, 1, 0, 1, 1])); //=> 0
-console.log(findOutlier([0, 1, 2])); //=> 1
+// console.log(towerBuilder(1)); //=>["*"]
+// console.log(towerBuilder(2)); // =>  [" * ","***"]
+console.log(towerBuilder(6)); // => ["  *  "," *** ","*****"]
