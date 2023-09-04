@@ -389,14 +389,47 @@
 // console.log(digitalRoot(132189)); // -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 // console.log(digitalRoot(493193)); //  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 
-function descendingOrder(n) {
-  const strArr = n.toFixed().split("");
-  const arrNumb = strArr.map((item) => Number(item));
-  return Number(arrNumb.sort((a, b) => b - a).join(""));
-}
+// function descendingOrder(n) {
+//   const strArr = n.toFixed().split("");
+//   const arrNumb = strArr.map((item) => Number(item));
+//   return Number(arrNumb.sort((a, b) => b - a).join(""));
+// }
 
-console.log(descendingOrder(0)); // => 0
-console.log(descendingOrder(1)); // => 1
-console.log(descendingOrder(111)); // => 111
-console.log(descendingOrder(15)); // => 51
-console.log(descendingOrder(1021)); // => 2110
+// console.log(descendingOrder(0)); // => 0
+// console.log(descendingOrder(1)); // => 1
+// console.log(descendingOrder(111)); // => 111
+// console.log(descendingOrder(15)); // => 51
+// console.log(descendingOrder(1021)); // => 2110
+
+// const reverseSeq = (n) => {
+//   const arr = [];
+//   for (let i = 1; i <= n; i++) {
+//     arr.push(i);
+//   }
+//   return arr.reverse();
+// };
+
+// console.log(reverseSeq(5));
+
+const min = function (list) {
+  let min = list[0];
+  for (let i = 0; i < list.length; i++) {
+    if (min > list[i]) {
+      min = list[i];
+    }
+  }
+  return min;
+};
+
+const max = function (list) {
+  let max = list[0];
+  for (let i = 0; i < list.length; i++) {
+    if (max < list[i]) {
+      max = list[i];
+    }
+  }
+  return max;
+};
+
+console.log(min([-52, 56, 30, 29, -54, 0, -110]));
+console.log(max([4, 6, 2, 1, 9, 63, -134, 566]));
