@@ -411,25 +411,38 @@
 
 // console.log(reverseSeq(5));
 
-const min = function (list) {
-  let min = list[0];
-  for (let i = 0; i < list.length; i++) {
-    if (min > list[i]) {
-      min = list[i];
-    }
-  }
-  return min;
-};
+// const min = function (list) {
+//   let min = list[0];
+//   for (let i = 0; i < list.length; i++) {
+//     if (min > list[i]) {
+//       min = list[i];
+//     }
+//   }
+//   return min;
+// };
 
-const max = function (list) {
-  let max = list[0];
-  for (let i = 0; i < list.length; i++) {
-    if (max < list[i]) {
-      max = list[i];
-    }
-  }
-  return max;
-};
+// const max = function (list) {
+//   let max = list[0];
+//   for (let i = 0; i < list.length; i++) {
+//     if (max < list[i]) {
+//       max = list[i];
+//     }
+//   }
+//   return max;
+// };
 
-console.log(min([-52, 56, 30, 29, -54, 0, -110]));
-console.log(max([4, 6, 2, 1, 9, 63, -134, 566]));
+// console.log(min([-52, 56, 30, 29, -54, 0, -110]));
+// console.log(max([4, 6, 2, 1, 9, 63, -134, 566]));
+
+function squareDigits(num) {
+  const arr = num
+    .toFixed()
+    .split("")
+    .map((item) => Number(item));
+
+  return Number(arr.map((item) => item ** 2).join(""));
+}
+
+console.log(squareDigits(3212)); //=> 9414
+console.log(squareDigits(2112)); //=> 4114
+console.log(squareDigits(9119)); //=> 811181
