@@ -434,15 +434,32 @@
 // console.log(min([-52, 56, 30, 29, -54, 0, -110]));
 // console.log(max([4, 6, 2, 1, 9, 63, -134, 566]));
 
-function squareDigits(num) {
-  const arr = num
-    .toFixed()
-    .split("")
-    .map((item) => Number(item));
+// function squareDigits(num) {
+//   const arr = num
+//     .toFixed()
+//     .split("")
+//     .map((item) => Number(item));
 
-  return Number(arr.map((item) => item ** 2).join(""));
+//   return Number(arr.map((item) => item ** 2).join(""));
+// }
+
+// console.log(squareDigits(3212)); //=> 9414
+// console.log(squareDigits(2112)); //=> 4114
+// console.log(squareDigits(9119)); //=> 811181
+
+function trim(str, size) {
+  if (size >= str.length) {
+    return str;
+  }
+  const newStr = str.slice(0, size).split("");
+
+  if (newStr.length <= 3) {
+    newStr.splice(newStr.length, 0, "...");
+    return newStr.join("");
+  }
+  newStr.splice(size - 3, 3, "...");
+
+  return newStr.join("");
 }
 
-console.log(squareDigits(3212)); //=> 9414
-console.log(squareDigits(2112)); //=> 4114
-console.log(squareDigits(9119)); //=> 811181
+console.log(trim("GBbSf IGuAx", 3));
