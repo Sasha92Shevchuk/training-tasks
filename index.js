@@ -447,19 +447,37 @@
 // console.log(squareDigits(2112)); //=> 4114
 // console.log(squareDigits(9119)); //=> 811181
 
-function trim(str, size) {
-  if (size >= str.length) {
-    return str;
-  }
-  const newStr = str.slice(0, size).split("");
+// function trim(str, size) {
+//   if (size >= str.length) {
+//     return str;
+//   }
+//   const newStr = str.slice(0, size).split("");
 
-  if (newStr.length <= 3) {
-    newStr.splice(newStr.length, 0, "...");
-    return newStr.join("");
-  }
-  newStr.splice(size - 3, 3, "...");
+//   if (newStr.length <= 3) {
+//     newStr.splice(newStr.length, 0, "...");
+//     return newStr.join("");
+//   }
+//   newStr.splice(size - 3, 3, "...");
 
-  return newStr.join("");
+//   return newStr.join("");
+// }
+
+// console.log(trim("GBbSf IGuAx", 3));
+
+function rowWeights(array) {
+  const evenArr = [];
+  const oddArr = [];
+  array.forEach((element, index) => {
+    if (index % 2 === 0) {
+      evenArr.push(element);
+    } else {
+      oddArr.push(element);
+    }
+  });
+  const evenRes = evenArr.reduce((acc, prev) => acc + prev, 0);
+  const oddRes = oddArr.reduce((acc, prev) => acc + prev, 0);
+  return [evenRes, oddRes];
 }
 
-console.log(trim("GBbSf IGuAx", 3));
+console.log(rowWeights([13, 27, 49])); // =>(62, 27)
+console.log(rowWeights([50, 60, 70, 80])); // =>(120, 140)
