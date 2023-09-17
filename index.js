@@ -464,20 +464,32 @@
 
 // console.log(trim("GBbSf IGuAx", 3));
 
-function rowWeights(array) {
-  const evenArr = [];
-  const oddArr = [];
-  array.forEach((element, index) => {
-    if (index % 2 === 0) {
-      evenArr.push(element);
-    } else {
-      oddArr.push(element);
-    }
-  });
-  const evenRes = evenArr.reduce((acc, prev) => acc + prev, 0);
-  const oddRes = oddArr.reduce((acc, prev) => acc + prev, 0);
-  return [evenRes, oddRes];
+// function rowWeights(array) {
+//   const evenArr = [];
+//   const oddArr = [];
+//   array.forEach((element, index) => {
+//     if (index % 2 === 0) {
+//       evenArr.push(element);
+//     } else {
+//       oddArr.push(element);
+//     }
+//   });
+//   const evenRes = evenArr.reduce((acc, prev) => acc + prev, 0);
+//   const oddRes = oddArr.reduce((acc, prev) => acc + prev, 0);
+//   return [evenRes, oddRes];
+// }
+
+// console.log(rowWeights([13, 27, 49])); // =>(62, 27)
+// console.log(rowWeights([50, 60, 70, 80])); // =>(120, 140)
+
+function createPhoneNumber(numbers) {
+  const str = numbers.join("");
+
+  //     return `(${str[0]}${str[1]}${str[2]}) ${str[3]}${str[4]}${str[5]}-${str[6]}${str[7]}${str[8]}${str[9]}`;
+
+  return str.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
 }
 
-console.log(rowWeights([13, 27, 49])); // =>(62, 27)
-console.log(rowWeights([50, 60, 70, 80])); // =>(120, 140)
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // => "(123) 456-7890"
+console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])); // => "(111) 111-1111"
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // => "(123) 456-7890"
