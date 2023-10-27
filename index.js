@@ -482,14 +482,146 @@
 // console.log(rowWeights([13, 27, 49])); // =>(62, 27)
 // console.log(rowWeights([50, 60, 70, 80])); // =>(120, 140)
 
-function createPhoneNumber(numbers) {
-  const str = numbers.join("");
+// function createPhoneNumber(numbers) {
+//   const str = numbers.join("");
 
-  //     return `(${str[0]}${str[1]}${str[2]}) ${str[3]}${str[4]}${str[5]}-${str[6]}${str[7]}${str[8]}${str[9]}`;
+//   //     return `(${str[0]}${str[1]}${str[2]}) ${str[3]}${str[4]}${str[5]}-${str[6]}${str[7]}${str[8]}${str[9]}`;
 
-  return str.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+//   return str.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+// }
+
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // => "(123) 456-7890"
+// console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])); // => "(111) 111-1111"
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // => "(123) 456-7890"
+
+// function findLargest(numbers) {
+//   // Your code goes here
+//   let res = null;
+//   numbers.forEach((element, index) => {
+//     console.log(element, "index", index);
+//     if (element > element + 1) {
+//       res = element;
+//     }
+//   });
+//   return res;
+//   for (let index = 0; index < array.length; index++) {
+//     const element = array[index];
+//   }
+// }
+
+// console.log(findLargest([7, 17, 13, 19, 5])); // 19
+
+// function computeClosestToZero(ts) {
+//   // Write your code here
+//   // To debug: console.error('Debug messages...');
+//   if (ts.length === 0) {
+//     return 0;
+//   }
+//   let closest = ts[0];
+//   for (let index = 0; index < ts.length; index += 1) {
+//     const element = ts[index];
+//     if (
+//       Math.abs(element) < Math.abs(closest) ||
+//       (Math.abs(element) === Math.abs(closest) && element > 0)
+//     ) {
+//       closest = element;
+//     }
+//   }
+//   return closest;
+// }
+
+// console.log(computeClosestToZero([1, 15, -6, 25, -4, -13, 1, -3]));
+
+// function areYouPlayingBanjo(name) {
+//   return name.toLowerCase()[0] === "r"
+//     ? `${name} plays banjo`
+//     : `${name} does not play banjo`;
+// }
+
+// console.log(areYouPlayingBanjo("Adam"));
+// console.log(areYouPlayingBanjo("Ringo"));
+
+// function sum(num) {
+//   return num === 0 ? num : sum(num - 1) + num;
+//   if (num === 0) {
+//     return num;
+//   }
+//   return sum(num - 1) + num;
+// }
+
+// console.log(sum(1));
+// console.log(sum(2));
+// console.log(sum(8));
+
+// function high(x) {
+//   const arr = x.split(/\s+/);
+//   let maxNumEl = 0;
+//   let res = "";
+//   arr.forEach((el) => {
+//     const numeratedEl = [...el].reduce(
+//       (acc, element) => acc + element.toLowerCase().charCodeAt(0) - 96,
+//       0
+//     );
+//     console.log(el);
+//     console.log(numeratedEl);
+//     if (numeratedEl > maxNumEl) {
+//       maxNumEl = numeratedEl;
+//       res = el;
+//     }
+//   });
+
+//   return res;
+// }
+
+// console.log(high("man i need a taxi up to ubud")); // 'taxi'
+// console.log(high("what time are we climbing up the volcano")); // 'volcano'
+// console.log(high("aaa b")); // 'aaa'
+// console.log(high("b aa")); // 'b'
+
+// function duplicateCount(text) {
+//   const lowerText = text.toLowerCase();
+//   let count = 0;
+//   const arrSet = new Set(lowerText);
+//   arrSet.forEach((element) => {
+//     let dublCount = 0;
+//     lowerText.split("").forEach((el) => {
+//       if (element === el) {
+//         dublCount += 1;
+//       }
+//     });
+//     if (dublCount >= 2) {
+//       count += 1;
+//     }
+//   });
+//   return count;
+// }
+
+// console.log(duplicateCount("aabBcde"));
+
+// function alphabetPosition(text) {
+//   const arrOfLetters = text.toLowerCase().match(/[a-zA-Z]+/gi);
+
+//   return !arrOfLetters
+//     ? ""
+//     : arrOfLetters
+//         .join("")
+//         .split("")
+//         .map((item) => item.charCodeAt() - 96)
+//         .join(" ");
+// }
+// console.log(alphabetPosition("4<.,?1%!"));
+
+// console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+// ("20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11")
+
+// function highAndLow(numbers) {
+//   const arr = numbers.split(" ");
+
+//   return `${Math.max(...arr)} ${Math.min(...arr)}`;
+// }
+// console.log(highAndLow("1 2 3")); // "3 1"
+
+function findOdd(A) {
+  //happy coding!
+  return 0;
 }
-
-console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // => "(123) 456-7890"
-console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])); // => "(111) 111-1111"
-console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // => "(123) 456-7890"
