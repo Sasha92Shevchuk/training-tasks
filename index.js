@@ -621,7 +621,62 @@
 // }
 // console.log(highAndLow("1 2 3")); // "3 1"
 
-function findOdd(A) {
-  //happy coding!
-  return 0;
+function findOdd(a) {
+  return a.reduce((a, b) => a ^ b);
 }
+// console.log(findOdd([1, 1, 2])); //=>2
+
+function longest(s1, s2) {
+  const arr = [...new Set([...s1, ...s2])];
+  return arr.sort((a, b) => a - b).join("");
+}
+
+// console.log(longest("aretheyhere", "yestheyarehere")); // "aehrsty"
+
+function likes(names) {
+  if (names.length < 1) {
+    return "no one likes this";
+  } else if (names.length === 1) {
+    return `${names[0]} likes this`;
+  } else if (names.length === 2) {
+    return `${names[0]} and ${names[1]} likes this`;
+  } else if (names.length === 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} likes this`;
+  } else {
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others likes this`;
+  }
+}
+
+// console.log(likes([])); //, "no one likes this"
+// console.log(likes(["Peter"])); // 'Peter likes this'
+// console.log(likes(["Jacob", "Alex"])); //, 'Jacob and Alex like this'
+// console.log(likes(["Max", "John", "Mark"])); //, 'Max, John and Mark like this'
+// console.log(likes(["Alex", "Jacob", "Mark", "Max"])); //, 'Alex, Jacob and 2 others like this'
+
+function order(words) {
+  const arr = words.split(" ");
+  console.log("order ~ arr:", arr);
+  // const arrOfAllNumbers = arr.map((item) => {
+  //   console.log("arrOfAllNumbers ~ item:", item);
+  //   const digits = item.match(/\d+/g);
+  //   console.log("arrOfAllNumbers ~ digits:", digits.join(""));
+  //   return digits ? digits.join("") : "";
+  // });
+  // console.log("order ~ arrOfAll:", arrOfAllNumbers);
+  const arrWithNumbers = arr.map((item) => {
+    const digits = item.match(/\d+/g);
+    console.log("arrWithNumbers ~ digits:", digits);
+    return {
+      word: item,
+      number: digits ? parseInt(digits[0], 10) : 0,
+    };
+  });
+  console.log("arrWithNumbers", arrWithNumbers);
+  // Сортуємо масив об'єктів за числовим значенням
+  arrWithNumbers.sort((a, b) => a.number - b.number);
+
+  // Повертаємо відсортовані слова як рядок
+  return arrWithNumbers.map((item) => item.word).join(" ");
+}
+
+console.log(order("is2 Thi1s T4est 3a")); //, "Thi1s is2 3a T4est"
