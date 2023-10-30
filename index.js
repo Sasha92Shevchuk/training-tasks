@@ -688,6 +688,27 @@ const countBits = function (n) {
     .reduce((a, b) => Number(a) + Number(b), 0);
 };
 
-console.log(countBits(0)); //0
-console.log(countBits(4)); //1
-console.log(countBits(1234)); //5
+// console.log(countBits(0)); //0
+// console.log(countBits(4)); //1
+// console.log(countBits(1234)); //5
+
+function rgb(r, g, b) {
+  return [r, g, b]
+    .map((item) => {
+      // if (item < 0) {
+      //   item = 0;
+      // } else if (item > 255) {
+      //   item = 255;
+      // }
+      item = item < 0 ? 0 : item > 255 ? 255 : item;
+      return item.toString(16).toUpperCase().padStart(2, "0");
+    })
+    .join("");
+}
+
+// console.log(rgb(255, 255, 255)); // "FFFFFF"
+// console.log(rgb(255, 255, 300)); // "FFFFFF"
+// console.log(rgb(0, 0, 0)); // "000000"
+// console.log(rgb(148, 0, 211)); // "9400D3"
+console.log(rgb(173, 300, 47)); // "ADFF2F"
+console.log(rgb(0, 0, -20)); // "000000"
