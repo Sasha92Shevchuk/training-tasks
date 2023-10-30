@@ -679,4 +679,15 @@ function order(words) {
   return arrWithNumbers.map((item) => item.word).join(" ");
 }
 
-console.log(order("is2 Thi1s T4est 3a")); //, "Thi1s is2 3a T4est"
+// console.log(order("is2 Thi1s T4est 3a")); //, "Thi1s is2 3a T4est"
+
+const countBits = function (n) {
+  return n
+    .toString(2)
+    .split("")
+    .reduce((a, b) => Number(a) + Number(b), 0);
+};
+
+console.log(countBits(0)); //0
+console.log(countBits(4)); //1
+console.log(countBits(1234)); //5
