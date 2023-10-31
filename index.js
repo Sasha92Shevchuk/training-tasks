@@ -710,5 +710,25 @@ function rgb(r, g, b) {
 // console.log(rgb(255, 255, 300)); // "FFFFFF"
 // console.log(rgb(0, 0, 0)); // "000000"
 // console.log(rgb(148, 0, 211)); // "9400D3"
-console.log(rgb(173, 300, 47)); // "ADFF2F"
-console.log(rgb(0, 0, -20)); // "000000"
+// console.log(rgb(173, 300, 47)); // "ADFF2F"
+// console.log(rgb(0, 0, -20)); // "000000"
+
+function findMissingLetter(array) {
+  //перетворити в юнікод
+  const arrOfUnicode = array.map((item) => item.charCodeAt() - 96);
+  //визначити пропущене число
+
+  let missingNumber = 0;
+  for (let i = 1; i < arrOfUnicode.length; i++) {
+    if (arrOfUnicode[i] !== arrOfUnicode[i - 1] + 1) {
+      missingNumber = arrOfUnicode[i - 1] + 1;
+      break;
+    }
+  }
+
+  //передати знайдене пропущене число в fromCharCode
+  return String.fromCharCode(missingNumber + 96);
+}
+
+console.log(findMissingLetter(["a", "b", "c", "d", "f"])); // => 'e'
+console.log(findMissingLetter(["O", "Q", "R", "S"])); // => 'P'
