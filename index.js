@@ -730,5 +730,12 @@ function findMissingLetter(array) {
   return String.fromCharCode(missingNumber + 96);
 }
 
-console.log(findMissingLetter(["a", "b", "c", "d", "f"])); // => 'e'
-console.log(findMissingLetter(["O", "Q", "R", "S"])); // => 'P'
+// console.log(findMissingLetter(["a", "b", "c", "d", "f"])); // => 'e'
+// console.log(findMissingLetter(["O", "Q", "R", "S"])); // => 'P'
+
+function expandedForm(num) {
+  const str = num.toString();
+  console.log("expandedForm ~ str:", str.length);
+}
+console.log(expandedForm(12)); //, "10 + 2"
+console.log(expandedForm(70304)); //, '70000 + 300 + 4'
