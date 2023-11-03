@@ -541,84 +541,84 @@
 // console.log(areYouPlayingBanjo("Adam"));
 // console.log(areYouPlayingBanjo("Ringo"));
 
-// function sum(num) {
-//   return num === 0 ? num : sum(num - 1) + num;
-//   if (num === 0) {
-//     return num;
-//   }
-//   return sum(num - 1) + num;
-// }
+function sum(num) {
+  return num === 0 ? num : sum(num - 1) + num;
+  if (num === 0) {
+    return num;
+  }
+  return sum(num - 1) + num;
+}
 
 // console.log(sum(1));
 // console.log(sum(2));
 // console.log(sum(8));
 
-// function high(x) {
-//   const arr = x.split(/\s+/);
-//   let maxNumEl = 0;
-//   let res = "";
-//   arr.forEach((el) => {
-//     const numeratedEl = [...el].reduce(
-//       (acc, element) => acc + element.toLowerCase().charCodeAt(0) - 96,
-//       0
-//     );
-//     console.log(el);
-//     console.log(numeratedEl);
-//     if (numeratedEl > maxNumEl) {
-//       maxNumEl = numeratedEl;
-//       res = el;
-//     }
-//   });
+function high(x) {
+  const arr = x.split(/\s+/);
+  let maxNumEl = 0;
+  let res = "";
+  arr.forEach((el) => {
+    const numeratedEl = [...el].reduce(
+      (acc, element) => acc + element.toLowerCase().charCodeAt(0) - 96,
+      0
+    );
+    console.log(el);
+    console.log(numeratedEl);
+    if (numeratedEl > maxNumEl) {
+      maxNumEl = numeratedEl;
+      res = el;
+    }
+  });
 
-//   return res;
-// }
+  return res;
+}
 
 // console.log(high("man i need a taxi up to ubud")); // 'taxi'
 // console.log(high("what time are we climbing up the volcano")); // 'volcano'
 // console.log(high("aaa b")); // 'aaa'
 // console.log(high("b aa")); // 'b'
 
-// function duplicateCount(text) {
-//   const lowerText = text.toLowerCase();
-//   let count = 0;
-//   const arrSet = new Set(lowerText);
-//   arrSet.forEach((element) => {
-//     let dublCount = 0;
-//     lowerText.split("").forEach((el) => {
-//       if (element === el) {
-//         dublCount += 1;
-//       }
-//     });
-//     if (dublCount >= 2) {
-//       count += 1;
-//     }
-//   });
-//   return count;
-// }
+function duplicateCount(text) {
+  const lowerText = text.toLowerCase();
+  let count = 0;
+  const arrSet = new Set(lowerText);
+  arrSet.forEach((element) => {
+    let dublCount = 0;
+    lowerText.split("").forEach((el) => {
+      if (element === el) {
+        dublCount += 1;
+      }
+    });
+    if (dublCount >= 2) {
+      count += 1;
+    }
+  });
+  return count;
+}
 
 // console.log(duplicateCount("aabBcde"));
 
-// function alphabetPosition(text) {
-//   const arrOfLetters = text.toLowerCase().match(/[a-zA-Z]+/gi);
+function alphabetPosition(text) {
+  const arrOfLetters = text.toLowerCase().match(/[a-zA-Z]+/gi);
 
-//   return !arrOfLetters
-//     ? ""
-//     : arrOfLetters
-//         .join("")
-//         .split("")
-//         .map((item) => item.charCodeAt() - 96)
-//         .join(" ");
-// }
+  return !arrOfLetters
+    ? ""
+    : arrOfLetters
+        .join("")
+        .split("")
+        .map((item) => item.charCodeAt() - 96)
+        .join(" ");
+}
 // console.log(alphabetPosition("4<.,?1%!"));
 
 // console.log(alphabetPosition("The sunset sets at twelve o' clock."));
 // ("20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11")
 
-// function highAndLow(numbers) {
-//   const arr = numbers.split(" ");
+function highAndLow(numbers) {
+  const arr = numbers.split(" ");
 
-//   return `${Math.max(...arr)} ${Math.min(...arr)}`;
-// }
+  return `${Math.max(...arr)} ${Math.min(...arr)}`;
+}
 // console.log(highAndLow("1 2 3")); // "3 1"
 
 function findOdd(a) {
