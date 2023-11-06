@@ -734,8 +734,68 @@ function findMissingLetter(array) {
 // console.log(findMissingLetter(["O", "Q", "R", "S"])); // => 'P'
 
 function expandedForm(num) {
-  const str = num.toString();
-  console.log("expandedForm ~ str:", str.length);
+  const arr = num
+    .toString()
+    .split("")
+    .map((item) => Number(item));
+  const res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      const zeros = "0".repeat(arr.length - i - 1);
+      res.push(arr[i].toString() + zeros);
+    }
+  }
+  return res.join(" + ");
 }
-console.log(expandedForm(12)); //, "10 + 2"
-console.log(expandedForm(70304)); //, '70000 + 300 + 4'
+// console.log(expandedForm(12)); //, "10 + 2"
+// console.log(expandedForm(70304)); //, '70000 + 300 + 4'
+
+// Дана текстова строка англійською.
+// Перетворити в масив об'єктів, де формат об'єкта такий:
+// {
+//   pos: <позиція>
+//   char: <символ в верхньому регістрі>
+//   type: <1 - голосна (aeyuio), 2 - приголосна (qwrtpsdfghjklzxcvbnm), 3-інші>
+// }
+
+// Наприклад
+// 'I like js'
+
+// Результат:
+// [
+//     { "pos": 0, "char": "I", "type": 1 },
+//     { "pos": 1, "char": " ", "type": 3 },
+//     { "pos": 2, "char": "L", "type": 2 },
+//     { "pos": 3, "char": "I", "type": 1 },
+//     { "pos": 4, "char": "K", "type": 2 },
+//     { "pos": 5, "char": "E", "type": 1 },
+//     { "pos": 6, "char": " ", "type": 3 },
+//     { "pos": 7, "char": "J", "type": 2 },
+//     { "pos": 8, "char": "S", "type": 2 }
+// ]
+
+function createObjFromStr(str) {
+  const consonants = "qwrtpsdfghjklzxcvbnm".split("");
+  const vowels = "aeyuio".split("");
+
+  const arr = [...str.toUpperCase()];
+
+  const result = arr.map((item, index) => {
+    if (vowels.includes(item.toLowerCase())) {
+      return { pos: index, char: item, type: 1 };
+    } else if (consonants.includes(item.toLowerCase())) {
+      return { pos: index, char: item, type: 2 };
+    } else {
+      return { pos: index, char: item, type: 3 };
+    }
+    // const map = new Map([
+    //   ["pos", index],
+    //   ["char", item],
+    //   ["type", type],
+    // ]);
+    // return Object.fromEntries(map);
+  });
+  return result;
+}
+
+console.log(createObjFromStr("I like js"));
