@@ -777,25 +777,32 @@ function expandedForm(num) {
 function createObjFromStr(str) {
   const consonants = "qwrtpsdfghjklzxcvbnm".split("");
   const vowels = "aeyuio".split("");
-
   const arr = [...str.toUpperCase()];
+  return arr.map((item, index) => {
+    const type = vowels.includes(item.toLowerCase())
+      ? 1
+      : consonants.includes(item.toLowerCase())
+      ? 2
+      : 3;
+    const map = new Map([
+      ["pos", index],
+      ["char", item],
+      ["type", type],
+    ]);
 
-  const result = arr.map((item, index) => {
-    if (vowels.includes(item.toLowerCase())) {
-      return { pos: index, char: item, type: 1 };
-    } else if (consonants.includes(item.toLowerCase())) {
-      return { pos: index, char: item, type: 2 };
-    } else {
-      return { pos: index, char: item, type: 3 };
-    }
-    // const map = new Map([
-    //   ["pos", index],
-    //   ["char", item],
-    //   ["type", type],
-    // ]);
-    // return Object.fromEntries(map);
+    return Object.fromEntries(map);
   });
-  return result;
 }
 
-console.log(createObjFromStr("I like js"));
+// console.log(createObjFromStr("I like js"));
+
+const getNumbers = (numbers, target) => {
+  const smalestNum = numbers.filter((el) => el < target);
+  const res = smalestNum.reduce((acc, item) => {}, 0);
+  return res;
+};
+
+const numbers = [100, 25, 15, 7, 3];
+console.log(getNumbers(numbers, 24)); //[15,3,3,3]
+// console.log(getNumbers(numbers, 53)); //[25,25,3]
+// console.log(getNumbers(numbers, 35)); //[25,7,3]
