@@ -806,3 +806,10 @@ const numbers = [100, 25, 15, 7, 3];
 console.log(getNumbers(numbers, 24)); //[15,3,3,3]
 // console.log(getNumbers(numbers, 53)); //[25,25,3]
 // console.log(getNumbers(numbers, 35)); //[25,7,3]
+
+function basicOp(operation, value1, value2) {
+  return eval(`${value1} ${operation} ${value2}`);
+}
+
+console.log(basicOp("+", 4, 7)); // 11
+console.log(basicOp("-", 15, 18)); // -3
