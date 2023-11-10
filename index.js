@@ -811,5 +811,12 @@ function basicOp(operation, value1, value2) {
   return eval(`${value1} ${operation} ${value2}`);
 }
 
-console.log(basicOp("+", 4, 7)); // 11
-console.log(basicOp("-", 15, 18)); // -3
+// console.log(basicOp("+", 4, 7)); // 11
+// console.log(basicOp("-", 15, 18)); // -3
+
+function invert(array) {
+  return array.map((item) => (item < 0 ? Math.abs(item) : -Math.abs(item)));
+}
+
+console.log(invert([1, 2, 3, 4, 5])); //[-1,-2,-3,-4,-5]
+console.log(invert([1, -2, 3, -4, 5])); //[-1,2,-3,4,-5]
