@@ -818,5 +818,13 @@ function invert(array) {
   return array.map((item) => (item < 0 ? Math.abs(item) : -Math.abs(item)));
 }
 
-console.log(invert([1, 2, 3, 4, 5])); //[-1,-2,-3,-4,-5]
-console.log(invert([1, -2, 3, -4, 5])); //[-1,2,-3,4,-5]
+// console.log(invert([1, 2, 3, 4, 5])); //[-1,-2,-3,-4,-5]
+// console.log(invert([1, -2, 3, -4, 5])); //[-1,2,-3,4,-5]
+
+function sum(numbers) {
+  "use strict";
+  return numbers.reduce((acc, item) => acc + item, 0);
+}
+
+console.log(sum([])); //0
+console.log(sum([1, 5.2, 4, 0, -1])); //9.2
