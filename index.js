@@ -803,7 +803,7 @@ const getNumbers = (numbers, target) => {
 };
 
 const numbers = [100, 25, 15, 7, 3];
-console.log(getNumbers(numbers, 24)); //[15,3,3,3]
+// console.log(getNumbers(numbers, 24)); //[15,3,3,3]
 // console.log(getNumbers(numbers, 53)); //[25,25,3]
 // console.log(getNumbers(numbers, 35)); //[25,7,3]
 
@@ -822,9 +822,21 @@ function invert(array) {
 // console.log(invert([1, -2, 3, -4, 5])); //[-1,2,-3,4,-5]
 
 function sum(numbers) {
-  "use strict";
   return numbers.reduce((acc, item) => acc + item, 0);
 }
 
-console.log(sum([])); //0
-console.log(sum([1, 5.2, 4, 0, -1])); //9.2
+// console.log(sum([])); //0
+// console.log(sum([1, 5.2, 4, 0, -1])); //9.2
+
+function getCount(str) {
+  const volwels = "aeiou";
+  let count = 0;
+  str.split("").forEach((item) => {
+    if (volwels.includes(item)) {
+      count += 1;
+    }
+  });
+  return count;
+}
+
+console.log(getCount("abracadabra")); //5
