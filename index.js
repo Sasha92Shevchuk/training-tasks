@@ -839,4 +839,17 @@ function getCount(str) {
   return count;
 }
 
-console.log(getCount("abracadabra")); //5
+// console.log(getCount("abracadabra")); //5
+
+function arrayDiff(a, b) {
+  // const arr = new Set([...a, ...b]);
+  // console.log(
+  //   "arrayDiff ~ arr:",
+  //   );
+  return [...a].filter((item) => item !== b[0]).filter((item) => item !== b[1]);
+}
+
+console.log(arrayDiff([1, 2], [1])); //[2]
+console.log(arrayDiff([1, 2, 2, 2, 3], [2])); //[1,3]
+console.log(arrayDiff([], [1, 2])); //[]
+console.log(arrayDiff([1, 2, 3], [1, 2])); //[3]
