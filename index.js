@@ -842,11 +842,7 @@ function getCount(str) {
 // console.log(getCount("abracadabra")); //5
 
 function arrayDiff(a, b) {
-  // const arr = new Set([...a, ...b]);
-  // console.log(
-  //   "arrayDiff ~ arr:",
-  //   );
-  return [...a].filter((item) => item !== b[0]).filter((item) => item !== b[1]);
+  return a.filter((e) => !b.includes(e));
 }
 
 console.log(arrayDiff([1, 2], [1])); //[2]
