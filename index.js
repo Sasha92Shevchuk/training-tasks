@@ -845,7 +845,14 @@ function arrayDiff(a, b) {
   return a.filter((e) => !b.includes(e));
 }
 
-console.log(arrayDiff([1, 2], [1])); //[2]
-console.log(arrayDiff([1, 2, 2, 2, 3], [2])); //[1,3]
-console.log(arrayDiff([], [1, 2])); //[]
-console.log(arrayDiff([1, 2, 3], [1, 2])); //[3]
+// console.log(arrayDiff([1, 2], [1])); //[2]
+// console.log(arrayDiff([1, 2, 2, 2, 3], [2])); //[1,3]
+// console.log(arrayDiff([], [1, 2])); //[]
+// console.log(arrayDiff([1, 2, 3], [1, 2])); //[3]
+
+function removeExclamationMarks(s) {
+  // return s.replace(/[!]/gi, "");
+  return s.replace(/[^\w\s]/gi, "");
+}
+
+console.log(removeExclamationMarks("Hell!o World!"));
