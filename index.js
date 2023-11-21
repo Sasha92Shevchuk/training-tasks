@@ -855,4 +855,22 @@ function removeExclamationMarks(s) {
   return s.replace(/[^\w\s]/gi, "");
 }
 
-console.log(removeExclamationMarks("Hell!o World!"));
+// console.log(removeExclamationMarks("Hell!o World!"));
+
+function accum(s) {
+  return [...s.toLowerCase()]
+    .map((item, index) => item.toUpperCase() + item.repeat(index))
+    .join("-");
+  // const accumArr = [...s.toLowerCase()].map((item, index) =>
+  //   index === 0 ? item.repeat(index + 1) : item.repeat(index)
+  // );
+
+  // return accumArr
+  //   .map((el, i) => {
+  //     const newEl = el[0].toUpperCase();
+  //     return i === 0 ? el.toUpperCase() : newEl + el;
+  //   })
+  //   .join("-");
+}
+
+console.log(accum("aBcd")); // "A-Bb-Ccc-Dddd"
