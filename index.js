@@ -873,4 +873,10 @@ function accum(s) {
   //   .join("-");
 }
 
-console.log(accum("aBcd")); // "A-Bb-Ccc-Dddd"
+// console.log(accum("aBcd")); // "A-Bb-Ccc-Dddd"
+
+function filter_list(l) {
+  return l.filter((item) => typeof item === "number");
+}
+
+console.log(filter_list([1, 2, "a", "b"])); // [1, 2]
