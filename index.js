@@ -890,6 +890,15 @@ function findUniq(arr) {
   // return arr[0] === arr[1] ? arr[arr.length - 1] : arr[0];
 }
 
-console.log(findUniq([1, 0, 0])); // 1
-console.log(findUniq([1, 1, 1, 2, 1, 1])); // 2
-console.log(findUniq([3, 10, 3, 3, 3])); // 10
+// console.log(findUniq([1, 1, 1, 2, 1, 1])); // 2
+// console.log(findUniq([3, 10, 3, 3, 3])); // 10
+// to do in string
+// console.log(findUniq(["Aa", "aaa", "aaaaa", "BbBb", "Aaaa", "AaAaAa", "a"])); // 'BbBb'
+
+function stray(numbers) {
+  numbers.sort((a, b) => a - b);
+  return numbers[0] === numbers[1] ? numbers[numbers.length - 1] : numbers[0];
+}
+
+console.log(stray([1, 1, 2])); //2
+console.log(stray([17, 17, 3, 17, 17, 17, 17])); //3
