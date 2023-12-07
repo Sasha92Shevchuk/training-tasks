@@ -902,3 +902,14 @@ function stray(numbers) {
 
 // console.log(stray([1, 1, 2])); //2
 // console.log(stray([17, 17, 3, 17, 17, 17, 17])); //3
+
+const square = (a) => a * a;
+
+// console.log(square(3));
+
+function past(h, m, s) {
+  return h * 3600000 + m * 60000 + s * 1000;
+}
+
+console.log(past(0, 1, 1)); //61000
+console.log(past(1, 1, 1)); //3661000
