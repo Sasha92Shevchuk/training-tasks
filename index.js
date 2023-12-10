@@ -911,5 +911,15 @@ function past(h, m, s) {
   return h * 3600000 + m * 60000 + s * 1000;
 }
 
-console.log(past(0, 1, 1)); //61000
-console.log(past(1, 1, 1)); //3661000
+// console.log(past(0, 1, 1)); //61000
+// console.log(past(1, 1, 1)); //3661000
+
+function between(a, b) {
+  const res = [];
+  for (let i = a; i <= b; i++) {
+    res.push(i);
+  }
+  return res;
+}
+
+console.log(between(-2, 4));
