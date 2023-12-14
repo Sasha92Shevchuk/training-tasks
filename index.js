@@ -922,4 +922,11 @@ function between(a, b) {
   return res;
 }
 
-console.log(between(-2, 4));
+// console.log(between(-2, 4));
+
+function solution(nums) {
+  return !nums || nums.length < 1 ? [] : nums.sort((a, b) => a - b);
+}
+
+console.log(solution([1, 2, 10, 50, 5]));
+console.log(solution([]));
